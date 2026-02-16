@@ -20,9 +20,17 @@ traffic congestion and dynamically recommend optimal signal durations.
 
 ## 🎥 Demo Video
 
-👉 Add your demo video link here:
 
-https://your-demo-link.com
+https://www.youtube.com/watch?v=0YFlV_16DUs
+
+
+
+## 📷 Output Preview
+
+<p align="center">
+  <img src="assets/images/image.png" width="700">
+  <img src="assets/images/image1.png" width="700">
+</p>
 
 ------------------------------------------------------------------------
 
@@ -58,13 +66,14 @@ Visual Output + Statistics
 YOLO (You Only Look Once) is a single-stage object detection algorithm
 capable of real-time performance.
 
-Detected vehicle classes: - Car\
-- Bus\
-- Truck\
-- Motorcycle
+Detected vehicle classes: - 
+- Two Wheeler
+- Four Wheeler
 
-Each detection outputs: - Bounding box coordinates\
-- Confidence score\
+
+Each detection outputs: 
+- Bounding box coordinates
+- Confidence score
 - Class label
 
 ------------------------------------------------------------------------
@@ -75,11 +84,12 @@ DeepSORT assigns a unique ID to each detected vehicle and tracks it
 across frames.
 
 It uses: - Kalman Filter for motion prediction\
-- Appearance feature embeddings\
+- Appearance feature embeddings
 - Hungarian algorithm for matching
 
-This prevents: - Double counting\
-- ID switching\
+This prevents: 
+- Double counting
+- ID switching
 - Tracking loss during partial occlusion
 
 ------------------------------------------------------------------------
@@ -88,7 +98,8 @@ This prevents: - Double counting\
 
 Lane regions are predefined using coordinate boundaries.
 
-When a tracked vehicle crosses a lane region: - It is counted only once\
+When a tracked vehicle crosses a counting line : 
+- It is counted only once\
 - The count is stored per lane\
 - Duplicate counting is avoided using tracking IDs
 
@@ -96,9 +107,9 @@ Example:
 
   Lane     Vehicle Count
   -------- ---------------
-  Lane 1   25
-  Lane 2   18
-  Lane 3   32
+  Incoming  25
+  Outgoing  18
+  
 
 ------------------------------------------------------------------------
 
@@ -112,19 +123,6 @@ Green Time = Base Time + (Vehicle Count × Scaling Factor)
 
 If one lane has significantly higher congestion, the system increases
 its green signal duration to reduce waiting time.
-
-------------------------------------------------------------------------
-
-## 📂 Project Structure
-
-SmartFlow/ │ ├── detection/ \# YOLO model files\
-├── tracking/ \# DeepSORT implementation\
-├── lane_config/ \# Lane coordinate setup\
-├── signal_logic/ \# Signal timing algorithm\
-├── utils/\
-├── main.py\
-├── requirements.txt\
-└── README.md
 
 ------------------------------------------------------------------------
 
@@ -148,11 +146,7 @@ pip install -r requirements.txt
 
 ## ▶️ Running the Project
 
-python main.py --source video.mp4
-
-For webcam:
-
-python main.py --source 0
+python -m streamlit run app.py
 
 ------------------------------------------------------------------------
 
